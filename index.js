@@ -43,6 +43,11 @@ function create(options) {
         throw new TypeError('must provide a \'path\' option')
     }
 
+    var method = req.method.toLowerCase()
+    if (method != 'post') {
+      return hasError('http request must use post method')
+    }
+
     var currentOptions
     if (Array.isArray(options)) {
       currentOptions = findHandler(req.url, options)
@@ -56,8 +61,9 @@ function create(options) {
       return callback()
     
     var r_uuid = req.headers['x-request-uuid']
-    var e_key = req.headers['x-event-key']
     var h_uuid = req.headers['x-hook-uuid']
+    var e_key = req.headers['x-event-key']
+
     var events = currentOptions.events
 
     if (!r_uuid)
@@ -68,6 +74,8 @@ function create(options) {
 
     if (!h_uuid)
       return hasError('No X-Hook-UUID found on request')
+
+    event = event.replace('repo:','')
     
     if (events && events.indexOf(event) === -1)
       return hasError('X-Event is not acceptable')
@@ -89,7 +97,6 @@ function create(options) {
 
       var emitData = {
         event: event,
-        id: id,
         payload: obj,
         protocol: req.protocol,
         host: req.headers['host'],

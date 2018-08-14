@@ -1,6 +1,6 @@
 {
   "name": "node-bitbucket-webhook",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Bitbucket Webhooks handler based on Node.js. Support multiple handlers.",
   "main": "index.js",
   "scripts": {
