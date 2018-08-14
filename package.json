@@ -1,0 +1,27 @@
+{
+  "name": "node-bitbucket-webhook",
+  "version": "0.0.1",
+  "description": "Bitbucket Webhooks handler based on Node.js. Support multiple handlers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuarthua/node-bitbucket-webhook.git"
+  },
+  "keywords": [
+    "Bitbucket",
+    "Webhooks",
+    "Node.js"
+  ],
+  "author": "stuarthua",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/excaliburhan/node-bitbucket-webhook/issues"
+  },
+  "homepage": "https://github.com/excaliburhan/node-bitbucket-webhook#readme",
+  "dependencies": {
+    "bl": "^1.2.0"
+  }
+}
