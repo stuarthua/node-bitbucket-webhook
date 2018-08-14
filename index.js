@@ -62,23 +62,18 @@ function create(options) {
     
     var r_uuid = req.headers['x-request-uuid']
     var h_uuid = req.headers['x-hook-uuid']
-    var e_key = req.headers['x-event-key']
-
-    var events = currentOptions.events
+    var event = req.headers['x-event-key']
 
     if (!r_uuid)
       return hasError('No X-Request-UUID found on request')
 
-    if (!e_key)
+    if (!event)
       return hasError('No X-Event-Key found on request')
 
     if (!h_uuid)
       return hasError('No X-Hook-UUID found on request')
 
     event = event.replace('repo:','')
-    
-    if (events && events.indexOf(event) === -1)
-      return hasError('X-Event is not acceptable')
     
     req.pipe(bl(function(err, data) {
       if (err)
