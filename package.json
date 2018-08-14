@@ -18,9 +18,9 @@
   "author": "stuarthua",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/excaliburhan/node-bitbucket-webhook/issues"
+    "url": "https://github.com/stuarthua/node-bitbucket-webhook/issues"
   },
-  "homepage": "https://github.com/excaliburhan/node-bitbucket-webhook#readme",
+  "homepage": "https://github.com/stuarthua/node-bitbucket-webhook#readme",
   "dependencies": {
     "bl": "^1.2.0"
   }

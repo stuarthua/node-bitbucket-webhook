@@ -8,7 +8,7 @@ Bitbucket Webhooks handler based on `Node.js`. Support multiple handlers.
 
 ## Instructions
 
-This library is inspired by [github-webhook-handler](https://github.com/rvagg/github-webhook-handler), and it allows you set multiple handlers for different repositories.
+This library is inspired by [github-webhook-handler](https://github.com/rvagg/github-webhook-handler)、[node-github-webhook](https://github.com/excaliburhan/node-github-webhook), and it allows you set multiple handlers for different repositories.
 
 It is a small tool based on Node.js to help you handler all the logic for receiving and verifying webhook requests from Bitbucket.
 
