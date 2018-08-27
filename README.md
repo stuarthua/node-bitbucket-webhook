@@ -1,35 +1,31 @@
 # node-bitbucket-webhook
 
-Bitbucket Webhooks handler based on `Node.js`. Support multiple handlers.
+基于 `Node.js` 的 Bitbucket Webhooks 工具, 支持设置多个仓库。
 
-## Language
+## 介绍
 
-- [中文](docs/zh_CN.md)
+这个库受到[github-webhook-handler](https://github.com/rvagg/github-webhook-handler)启发而来，它支持你为多个仓库同时设置钩子。
 
-## Instructions
+该库基于 `Node.js` ，能帮你处理所有来自Github的webhooks请求。
 
-This library is inspired by [github-webhook-handler](https://github.com/rvagg/github-webhook-handler)、[node-github-webhook](https://github.com/excaliburhan/node-github-webhook), and it allows you set multiple handlers for different repositories.
+如果你想要了解 Bitbucket 的 Webhooks ，请看：[Manage webhooks](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html)。
 
-It is a small tool based on Node.js to help you handler all the logic for receiving and verifying webhook requests from Bitbucket.
+注意：`Content-type` - `application/json`。
 
-If you want to know webhooks of Bitbucket, please see: [Manage webhooks](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html).
-
-Notice: `Content-type` - `application/json`.
-
-## Installation
+## 安装
 
 `npm install node-bitbucket-webhook --save`
 
-## Usage
+## 使用
 
 ```js
 var http = require('http')
 var createHandler = require('node-bitbucket-webhook')
-var handler = createHandler([ // multiple handlers
+var handler = createHandler([ // 多个仓库
   { path: '/webhook1' },
   { path: '/webhook2' }
 ])
-// var handler = createHandler({ path: '/webhook1' }) // single handler
+// var handler = createHandler({ path: '/webhook1' }) // 单个仓库
 
 http.createServer(function (req, res) {
   handler(req, res, function (err) {
@@ -48,16 +44,21 @@ handler.on('push', function (event) {
     event.payload.repository.name,
     event.payload.ref
   )
-  switch(event.path) {
+  switch (event.path) {
     case '/webhook1':
-      // do sth about webhook1
+      // 处理webhook1
       break
     case '/webhook2':
-      // do sth about webhook2
+      // 处理webhook2
       break
     default:
-      // do sth else or nothing
+      // 处理其他
       break
   }
 })
 ```
+
+## 仓库
+
+* [github.node-bitbucket-webhook](https://github.com/stuarthua/node-bitbucket-webhook)
+* [bitbucket.node-bitbucket-webhook](https://bitbucket.org/stuarthua/node-bitbucket-webhook/)
