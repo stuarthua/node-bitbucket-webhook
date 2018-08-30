@@ -6,7 +6,7 @@
 
 这个库受到[github-webhook-handler](https://github.com/rvagg/github-webhook-handler)启发而来，它支持你为多个仓库同时设置钩子。
 
-该库基于 `Node.js` ，能帮你处理所有来自Github的webhooks请求。
+该库基于 `Node.js` ，能帮你处理所有来自 Bitbucket 的 webhooks 请求。
 
 如果你想要了解 Bitbucket 的 Webhooks ，请看：[Manage webhooks](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html)。
 
